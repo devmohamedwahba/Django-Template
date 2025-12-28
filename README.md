@@ -1,4 +1,4 @@
-#  Backend Template
+# Backend Template
 
 A Django REST API backend template with Docker and PostgreSQL.
 
