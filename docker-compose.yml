@@ -1,0 +1,32 @@
+services:
+  web:
+    build: .
+    container_name: backend_django
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    volumes:
+      - ./config:/backend/config
+    env_file:
+      - ./config/.env
+    depends_on:
+      db:
+        condition: service_healthy
+        restart: true
+
+  db:
+    image: postgres:17
+    container_name: backend_db
+    volumes:
+      - backend_db:/var/lib/postgresql/data/
+    env_file:
+      - ./config/.env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
+volumes:
+  backend_db:

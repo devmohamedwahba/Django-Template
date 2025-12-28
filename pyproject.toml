@@ -1,0 +1,33 @@
+[project]
+name = "mezo-backend-temp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "django>=6.0",
+    "django-debug-toolbar>=6.1.0",
+    "django-extensions>=4.1",
+    "djangorestframework>=3.16.1",
+    "pillow>=12.0.0",
+    "pre-commit>=4.5.0",
+    "psycopg[binary]>=3.3.2",
+    "python-dotenv>=1.2.1",
+    "werkzeug>=3.1.4",
+    "whitenoise>=6.11.0",
+]
+
+
+target-version = "py314"
+
+[tool.black]
+target-version = ["py313"]
+[tool.isort]
+profile = "black"
+
+
+[tool.ruff]
+
+[tool.ruff.lint]
+select = []
+ignore = []
